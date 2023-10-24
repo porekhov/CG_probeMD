@@ -1,7 +1,7 @@
 # CG_probeMD
 a pipeline for running MD simulations in the presence of probe molecules for druggability assessment.
 
-A fully automated Colab pipeline is coming soon.
+**Colab** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/porekhov/CG_probeMD/blob/main/colabind_probeMD.ipynb)  - `Run the pipeline in Google Colab using OpenMM`
 
 Requirements:
 - Gromacs (version 2022.2 and later were tested), https://www.gromacs.org/
