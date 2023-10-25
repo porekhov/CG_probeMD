@@ -4,7 +4,7 @@ a pipeline for running and analyzing co-solvent MD simulations in the presence o
 
 **Colab-based OpenMM version** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/porekhov/CG_probeMD/blob/main/colabind_probeMD.ipynb)  - Run the pipeline in Google Colab using OpenMM.
 
-**Local OpenMM version** - Run the pipeline locally using OpenMM using notebook colabind_local.ipynb
+**Local OpenMM version** - Run the pipeline locally using OpenMM. Download and run notebook colabind_local.ipynb
 
 Requirements:
 
