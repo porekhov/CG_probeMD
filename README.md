@@ -35,8 +35,6 @@ The working directory should contain the following files from this repository:
 
 Alternatively, the same pipeline can be run using Gromacs. Download and run notebook colabind_local_gmx.ipynb
 
-
-
 Requirements:
 
 - Same as above + Gromacs (version 2022.2 and later were tested), https://www.gromacs.org/
@@ -47,7 +45,7 @@ The working directory should also contain the following files from this reposito
 
 - insane_probes.py, slightly modified insane.py script with additional solvents (probes)
 
-Output files:
+**Output files**
 
 - dens_XXX.dx - densities for individual probes and all probes together. densities are recalculated into free energies of corresponding probe molecules (in kJ/mol units).
 
