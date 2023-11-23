@@ -33,7 +33,9 @@ The working directory should contain the following files from this repository:
 
 **Local Gromacs version**
 
-Alternatively, the same pipeline can be run using Gromacs.
+Alternatively, the same pipeline can be run using Gromacs. Download and run notebook colabind_local_gmx.ipynb
+
+
 
 Requirements:
 
@@ -43,25 +45,17 @@ The working directory should also contain the following files from this reposito
 
 - Folders _martini and _mdp, forcefield parameters and topologies (including probe molecules) and Gromacs simulation parameters, respectively
 
-- dssp.py, a simple wrapper for the mdtraj dssp function
-
 - insane_probes.py, slightly modified insane.py script with additional solvents (probes)
 
-- calc_dens_clusters.py, calculates densities and hot-spot clusters
+Output files:
 
-How to use:
+- dens_XXX.dx - densities for individual probes and all probes together. densities are recalculated into free energies of corresponding probe molecules (in kJ/mol units).
 
-1. Run prep_run.sh providing a PDB file with the protein of interest (may require pretreatment), ./run.sh protein.pdb
+- centers_mean_ene.pdb Clusters sorted by their mean free energy (from the lowest to the highest). Each cluster is represented by a single hotspot with the mininal energy. Residue name = probe type (ALL for the joint density); Residue number = cluster rank; occupancy = the cluster minimal energy; beta factor = the cluster mean energy.
 
-2. After the production simulation is finished, run calc_dens_clusters.py. If finished normally, several files should appear in the current directory:
+- centers_min_ene.pdb Clusters sorted by their minimal free energy (from the lowest to the highest). Each cluster is represented by a single hotspot with the mininal energy. Residue name = probe type (ALL for the joint density); Residue number = cluster rank; occupancy = the cluster mean energy; beta factor = the cluster minimal energy.
 
-- dens_XXX.dx - densities for individual probes and all probes together. densities are recalculated into free energies of corresponding probe molecules, i.e., in kJ/mol units.
-
-- centers_mean_ene.pdb Clusters sorted by their mean free energy (from the lowest to the highest). Each cluster is represented by a single hotspot with the mininal energy. Residue name = probe type (ALL for the joint density); Residue number = cluster rank; beta factor = the cluster mean energy.
-
-- centers_min_ene.pdb Clusters sorted by their minimal free energy (from the lowest to the highest). Each cluster is represented by a single hotspot with the mininal energy. Residue name = probe type (ALL for the joint density); Residue number = cluster rank; beta factor = the cluster minimal energy.
-
-- centers_sum_ene.pdb Clusters sorted by their total free energy (from the lowest to the highest). Each cluster is represented by a single hotspot with the mininal energy. Residue name = probe type (ALL for the joint density); Residue number = cluster rank; beta factor = the cluster total energy.
+- centers_sum_ene.pdb Clusters sorted by their total free energy (from the lowest to the highest). Each cluster is represented by a single hotspot with the mininal energy. Residue name = probe type (ALL for the joint density); Residue number = cluster rank; occupancy = the cluster mean energy; beta factor = the cluster total energy.
 
 - clusters_mean_ene.pdb Clusters sorted by their mean free energy (from the lowest to the highest). Each cluster is represented by all belonging hotspots. Residue name = probe type (ALL for the joint density); Residue number = cluster rank; occupancy = hotspot energy; beta factor = the cluster mean energy.
 
