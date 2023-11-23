@@ -1,0 +1,141 @@
+;;;;;; Acetate ion
+
+[moleculetype]
+; molname 	nrexcl
+   ACET 		1
+
+[atoms]
+;id 	type 	resnr 	residu 	atom 	cgnr 	charge 
+ 1 	SQ5n 	1 	ACET 	ACET 	1 	-1.0      59.044
+
+;;;;;; ISOPROPYLAMINE
+
+[moleculetype]
+; molname 	nrexcl
+   IPA 		1
+
+[atoms]
+;id 	type 	resnr 	residu 	atom 	cgnr 	charge 
+ 1 	SQ5p 	1 	IPA 	IPA 	1 	 1.0      59.112
+ 
+;;;;;; PHENOL
+
+[moleculetype]
+; molname       nrexcl
+  PHEN            1
+
+[atoms]
+; id    type    resnr   residu  atom    cgnr    charge
+  1   SN6   1     PHEN  O1    1     0   23.5
+  2   TC5   1     PHEN  R2    2     0   23.5
+  3   TC5   1     PHEN  R3    3     0   23.5
+  4   VSprb 1     PHEN  VS1   4     0   23.5
+    
+[constraints]
+; i j   funct   length
+  1 2       1     0.285 
+  2 3       1     0.295
+  1 3       1     0.285
+
+[bonds]
+; i j   funct   length  force.c.
+  2 4   1       0.1475   2500
+  3 4   1       0.1475   2500
+
+[ exclusions ]
+4      1 2 3
+
+;;;;;; CHLOROBENZENE
+
+[moleculetype]
+; molname       nrexcl
+  CLBZ            1
+
+[atoms]
+; id    type    resnr   residu  atom    cgnr    charge
+  1   SX3   1     CLBZ  Cl    1     0   23.5
+  2   TC5   1     CLBZ  R2    2     0   23.5
+  3   TC5   1     CLBZ  R3    3     0   23.5
+  4   VSprb 1     CLBZ  VS1   4     0   23.5
+    
+[constraints]
+; i j   funct   length
+  1 2       1     0.320 
+  2 3       1     0.280
+  1 3       1     0.320
+
+[bonds]
+; i j   funct   length  force.c.
+  2 4   1       0.14     2500
+  3 4   1       0.14     2500
+
+[ exclusions ]
+4      1 2 3
+
+
+;;;;;; BENZENE
+
+[moleculetype]
+; molname       nrexcl
+  BENZ            1
+
+[atoms]
+; id    type    resnr   residu  atom    cgnr    charge
+  1   TC5   1     BENZ  R1    1     0    26.0
+  2   TC5   1     BENZ  R2    2     0    26.0
+  3   TC5   1     BENZ  R3    3     0    26.0
+  4   VSprb 1     BENZ  VS1   4     0    0.0
+
+[constraints]
+; i j   funct   length
+  1 2       1     0.290 ; cog
+  2 3       1     0.290 ; cog
+  1 3       1     0.290 ; cog
+  
+[bonds]
+; i j   funct   length  force.c.
+  1 4   1       0.1674   2500
+  2 4   1       0.1674   2500
+  3 4   1       0.1674   2500
+
+[ exclusions ]
+4      1 2 3
+
+;;;;;; Urea
+;
+;;; Cite: https://doi.org/10.1021/acssuschemeng.1c06521
+;;; Notes:
+; Set LINCS warnangle to 90 degrees.
+; Effect on epsilon_rf still needs to be studied - in case of pure
+; urea it might be best to go with 2.5.
+;
+; version:           0.2
+; logP:		    -1.22 +/- 0.04
+; logP(exp): 	    -1.538 (https://doi.org/10.1007/BF01870888)
+; SASA (CG/Rowland): 1.010
+ 
+[ moleculetype ]
+; molname    nrexcl
+  UREA         1 
+
+[ atoms ]
+; nr type resnr residue atom cgnr charge mass
+   1 SP2dq  0    UREA   N1    1    0     12.06 
+   2   U    0    UREA   UP    1    0.35  24; U-beads have mass of 24
+   3   U    0    UREA   UN    1   -0.35  24
+
+;[ constraints ]
+;  1   2    1     0.100  
+;  1   3    1     0.100 
+;In case minimization gives you trouble, use stiff bonds.
+[ bonds ]
+  1   2    1     0.100     15000
+  1   3    1     0.100     15000
+
+[ angles ]
+;  ai   aj   ak  funct   angle     fc
+   2    1    3     2     179.5     8.5
+
+[ exclusions ]
+   1    2    3
+   2    3
