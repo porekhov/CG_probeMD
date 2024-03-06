@@ -17,8 +17,10 @@ e. The molecular dynamics trajectory of the production simulation is processed i
 f. The densities are calculated at the 3D grid around the aligned target with the voxel size of 2 Å using the gridData module of MDAnalysis;
 
 g. The obtained densities, Dprobe, (individual densities for each type of probe compounds and the integrated “joint” density calculated for all probes together considering all probe CG particles as equal) are converted to the “free energy” densities using the Boltzmann inversion and the bulk densities, Dbulk, estimated using one of two approaches:
-from the bulk solution with the same composition and the water:probe ratio (default);
-based on the relative number of solute molecules to water molecules with water assigned a concentration of 55 M (following 10.1073/pnas.2214024119);
+
+- from the bulk solution with the same composition and the water:probe ratio (default);
+
+- based on the relative number of solute molecules to water molecules with water assigned a concentration of 55 M (following 10.1073/pnas.2214024119);
 
 h. The “free energy” densities are filtered using < −1 kT criterion as a threshold for “significant” voxels, which we term interaction “hotspots”;
 
