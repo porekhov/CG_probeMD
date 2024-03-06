@@ -20,7 +20,7 @@ g. The obtained densities, Dprobe, (individual densities for each type of probe 
 
 - from the bulk solution with the same composition and the water:probe ratio (default);
 
-- based on the relative number of solute molecules to water molecules with water assigned a concentration of 55 M (following 10.1073/pnas.2214024119);
+- based on the relative number of solute molecules to water molecules with water assigned a concentration of 55 M (following the suggestion from 10.1073/pnas.2214024119);
 
 h. The “free energy” densities are filtered using < −1 kT criterion as a threshold for “significant” voxels, which we term interaction “hotspots”;
 
