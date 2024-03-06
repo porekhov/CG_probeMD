@@ -4,9 +4,9 @@ a pipeline for running and analyzing co-solvent MD simulations in the presence o
 
 **Computational workflow**
 
-a. The input structure of a target in the PDB format is pre-processed using pdbfixer36 to repair possible minor issues with missing atoms, etc.;
+a. The input structure of a target in the PDB format is pre-processed using pdbfixer to repair possible minor issues with missing atoms, etc.;
 
-b. The coarse-grained topology in the GROMACS format (.top and .itp files) is built using martinize237 with the most recent MARTINI 3 version28 together with the ElNeDyn approach38 for maintaining protein spatial structure;
+b. The coarse-grained topology in the GROMACS format (.top and .itp files) is built using martinize2 with the most recent MARTINI 3 version together with the ElNeDyn approach for maintaining protein spatial structure;
 
 c. The coarse-grained target structure is placed in a cubic box with  the dimensions chosen such that the minimal distance between the periodic replicas of the solute is at least 3.0 nm, and solvated with the standard MARTINI water particles and the probe compounds at the desired concentrations using the slightly modified insane.py script;
 
