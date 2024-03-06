@@ -5,15 +5,23 @@ a pipeline for running and analyzing co-solvent MD simulations in the presence o
 **Computational workflow**
 
 a. The input structure of a target in the PDB format is pre-processed using pdbfixer36 to repair possible minor issues with missing atoms, etc.;
+
 b. The coarse-grained topology in the GROMACS format (.top and .itp files) is built using martinize237 with the most recent MARTINI 3 version28 together with the ElNeDyn approach38 for maintaining protein spatial structure;
+
 c. The coarse-grained target structure is placed in a cubic box with  the dimensions chosen such that the minimal distance between the periodic replicas of the solute is at least 3.0 nm, and solvated with the standard MARTINI water particles and the probe compounds at the desired concentrations using the slightly modified insane.py script;
+
 d. The molecular dynamics simulations are run using the OpenMM toolkit augmented with the martini_openmm package: (1) minimization; (2) NVT equilibration; (3) NpT equilibration; (4) production simulation;
+
 e. The molecular dynamics trajectory of the production simulation is processed in order to align the target to the first frame, wrap the probe molecules around it, and fix the periodic boundary conditions using MDAnalysis;
+
 f. The densities are calculated at the 3D grid around the aligned target with the voxel size of 2 Å using the gridData module of MDAnalysis;
+
 g. The obtained densities, Dprobe, (individual densities for each type of probe compounds and the integrated “joint” density calculated for all probes together considering all probe CG particles as equal) are converted to the “free energy” densities using the Boltzmann inversion and the bulk densities, Dbulk, estimated using one of two approaches:
 from the bulk solution with the same composition and the water:probe ratio (default);
 based on the relative number of solute molecules to water molecules with water assigned a concentration of 55 M (following 10.1073/pnas.2214024119);
+
 h. The “free energy” densities are filtered using < −1 kT criterion as a threshold for “significant” voxels, which we term interaction “hotspots”;
+
 i. The densities are clustered using the MeanShift algorithm with the bandwidth parameter by default set to 6.
 
 
