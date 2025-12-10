@@ -2,6 +2,22 @@
 
 a pipeline for running and analyzing co-solvent MD simulations in the presence of probe molecules for druggability assessment.
 
+**Citation**
+
+[![DOI](https://img.shields.io/badge/DOI-10.1021%2Facs.jpcb.3c07853-blue)](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.3c07853)
+```
+@article{andreev2024colabind,
+  title={Colabind: a cloud-based approach for prediction of binding sites using coarse-grained simulations with molecular probes},
+  author={Andreev, Georgy and Kovalenko, Max and Bozdaganyan, Marine E and Orekhov, Philipp S},
+  journal={The Journal of Physical Chemistry B},
+  volume={128},
+  number={13},
+  pages={3211--3219},
+  year={2024},
+  publisher={ACS Publications}
+}
+```
+
 **Computational workflow**
 
 a. The input structure of a target in the PDB format is pre-processed using pdbfixer to repair possible minor issues with missing atoms, etc.;
